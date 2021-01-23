@@ -88,7 +88,7 @@ bool isValidExpression(const std::string& expr, size_t& index, int& countParenth
 	{
 		countParenthesis--;
 		if (countParenthesis < 0) { return false; }
-		if (index == expr.length()) { return true; }
+		if (index == expr.length() && countParenthesis == 0) { return true; }
 		
 		Token operatorToken = getNextToken(expr, index);
 		if (operatorToken.type != Token::oper) { return false; }
